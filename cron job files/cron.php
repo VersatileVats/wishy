@@ -2,7 +2,7 @@
     require 'vendor/autoload.php';
     use Twilio\Rest\Client;
 
-    $connect = mysqli_connect("localhost", "u195637119_vishalsproject", "ZGfgxEaPNJyx@9j", "u195637119_wheels4water");
+    $connect = mysqli_connect("localhost", $USERNAME, $PASSWORD, $DbName);
     
     function decodeGMTOffset($gmtOffset)
     {
@@ -204,8 +204,8 @@
             } else {
                 echo "Will send a SMS";
                 
-                $sid    = "ACf1339232a9cc6197b94117610957486f";
-                $token  = "9cfede85d22959ff6c9115193e10aca0";
+                $sid    = $TwilioSid;
+                $token  = $TwilioAuthToken;
                 $twilio = new Client($sid, $token);
             
                 $message = $twilio->messages
